@@ -25,7 +25,7 @@ class State:
         if self.board.has_kingside_castling_rights(chess.WHITE):
             assert bstate[7] == 4
             bstate[7] = 7
-        if self.board.has_queenside_castling_rights(chess.WHITE):
+        if self.board.has_queenside_castling_rights(chess.BLACK):
             assert bstate[56] == 8+4
             bstate[56] = 8+7
         if self.board.has_kingside_castling_rights(chess.BLACK):
@@ -63,4 +63,4 @@ class State:
 
 if __name__ == "__main__":
     s = State()
-    print(s.edges())
+    print(s.serialize()[0, :, :])

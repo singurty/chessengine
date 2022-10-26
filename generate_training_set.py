@@ -17,4 +17,4 @@ for fn in os.listdir("data"):
         board = game.board()
         for move in game.mainline_moves():
             board.push(move)
-            print(value, State(board).serialize())
+            print(value, State(board).serialize()[0, :, :])
