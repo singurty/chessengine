@@ -4,8 +4,9 @@ import chess
 import chess.pgn
 import os
 from state import State
+import numpy as np
 
-def get_dateset(num_samples=None):
+def get_dataset(num_samples=None):
     X, Y = [], []
     games_count = 0
     for fn in os.listdir("data"):
@@ -29,4 +30,5 @@ def get_dateset(num_samples=None):
     return X, Y
 
 if __name__ == "__main__":
-    X, Y = get_dateset(1000)
+    X, Y = get_dataset(1e6)
+    np.savez('processed/dataset.npz', X, Y)
